@@ -18,7 +18,7 @@ kubectl apply -f kubernetes/servicemonitor.yaml
 kubectl apply -f kubernetes/grafana-dashboard-cm.yaml -->
 
 
- kubectl get servicemonitor -n ai-obs -o yaml
+kubectl get servicemonitor -n ai-obs -o yaml
 apiVersion: v1
 items:
 - apiVersion: monitoring.coreos.com/v1

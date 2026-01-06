@@ -5,6 +5,7 @@ metadata:
   namespace: ai-obs
   labels:
     team: ai
+    release: monitoring   # 🔥 REQUIRED
 spec:
   namespaceSelector:
     matchNames:

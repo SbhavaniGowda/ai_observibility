@@ -1,0 +1,28 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: ai-alerts
+  namespace: ai-obs
+  labels:
+    team: ai
+spec:
+  groups:
+  - name: ai.rules
+    rules:
+    - alert: HighGPU
+      expr: ai_gpu_utilization > 85
+      for: 1m
+      labels:
+        severity: critical
+      annotations:
+        summary: High GPU usage
+        description: GPU is {{ $value }}%
+
+    - alert: AIAnomaly
+      expr: increase(ai_anomalies_total[1m]) > 0
+      for: 30s
+      labels:
+        severity: warning
+      annotations:
+        summary: AI anomaly detected
+        description: Root cause available in labels

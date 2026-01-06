@@ -1,0 +1,18 @@
+grafana:
+  enabled: true
+  adminPassword: admin
+  sidecar:
+    dashboards:
+      enabled: true
+
+alertmanager:
+  enabled: true
+
+prometheus:
+  prometheusSpec:
+    serviceMonitorSelector:
+      matchLabels:
+        team: ai
+    ruleSelector:
+      matchLabels:
+        team: ai

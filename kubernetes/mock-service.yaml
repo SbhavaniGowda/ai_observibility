@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mock-traffic
+  namespace: ai-obs
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mock-traffic
+  template:
+    metadata:
+      labels:
+        app: mock-traffic
+    spec:
+      containers:
+      - name: mock
+        image: mock-service:latest
+        imagePullPolicy: Never

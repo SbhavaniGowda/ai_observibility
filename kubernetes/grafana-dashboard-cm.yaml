@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ai-dashboard
+  namespace: ai-obs
+  labels:
+    grafana_dashboard: "1"
+data:
+  dashboard.json: |
+    { "title": "AI Observability", "panels": [] }

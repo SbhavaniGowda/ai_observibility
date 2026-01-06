@@ -68,12 +68,11 @@ kubectl apply -f ./kubernetes/mock-service.yaml
 # Apply observability CRDs
 # -------------------------------------------------
 echo "▶ Applying observability resources..."
-kubectl apply -f ./kubernetes/alertmanager-secret.yaml
-kubectl apply -f ./kubernetes/alertmanager.yaml
+kubectl apply -f ./kubernetes/alert-manager-secret.yaml
+kubectl apply -f ./kubernetes/alert-manager.yaml
 kubectl apply -f ./kubernetes/prometheus-rules.yaml
 kubectl apply -f ./kubernetes/servicemonitor.yaml
 kubectl apply -f ./kubernetes/grafana-dashboard-cm.yaml
-
 echo ""
 echo "✅ Setup completed successfully!"
 echo ""

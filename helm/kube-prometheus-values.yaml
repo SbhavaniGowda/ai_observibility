@@ -10,9 +10,13 @@ alertmanager:
 
 prometheus:
   prometheusSpec:
+    serviceMonitorSelectorNilUseHelmValues: false
     serviceMonitorSelector:
       matchLabels:
         team: ai
+    serviceMonitornamespaceSelector:
+      matchNames:
+      - ai-obs
     ruleSelector:
       matchLabels:
         team: ai

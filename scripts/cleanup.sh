@@ -1,15 +1,17 @@
 #!/bin/bash
 set -e
 
-echo "Cleaning AI Observability Demo resources..."
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
-# Delete namespace (this removes everything inside)
+cd "$PROJECT_ROOT"
+
+echo "🧹 Cleaning AI Observability Demo resources..."
+
 kubectl delete namespace ai-obs --ignore-not-found
 
-# Optional: uninstall Prometheus Operator (uncomment if needed)
+# Optional cleanup (commented on purpose)
 # helm uninstall monitoring -n ai-obs
-
-# Optional: delete Minikube completely (uncomment if needed)
 # minikube delete
 
-echo "Cleanup completed."
+echo "✅ Cleanup completed."
